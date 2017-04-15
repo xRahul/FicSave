@@ -1,12 +1,10 @@
-const Koa = require('koa');
-const KoaSocket = require('koa-socket');
+const io = require('socket.io').listen(3000);
 
-const app = new Koa();
-const io = new KoaSocket();
-
-io.attach(app);
-io.on('join', (ctx, data) => {
-  console.log('join event fired', data);
+io.on('connection', (socket) => {
+  console.log('connection');
+  socket.emit('message', 'Hello world!');
+  socket.on('ping1', () => {
+    console.log('pong');
+    socket.emit('pong');
+  });
 });
-
-app.listen(process.env.PORT || 3000);
