@@ -6,20 +6,20 @@
       <div class="col s12">
         <div class="row">
           <div class="input-field col s9 l5">
-            <input id="url" type="url" name="url" class="validate" value=""/>
-            <label for="url" class="grey-text text-lighten-1">Fanfic URL</label>
+            <input id="url" type="url" name="url" class="validate" v-model="fanficUrl"/>
+            <label for="url">Fanfic URL</label>
           </div>
           <div class="input-field col s3 l2">
-            <select id="format" name="format">
+            <select id="format" name="format" v-model="format">
               <option value="epub">ePub</option>
               <option value="mobi">MOBI</option>
               <option value="txt">Text</option>
             </select>
-            <label class="grey-text text-lighten-1" for="format">Format</label>
+            <label for="format">Format</label>
           </div>
           <div class="input-field col s12 l3">
-            <input id="email" type="email" name="email" class="validate"/>
-            <label for="email" class="grey-text text-lighten-1">Email (optional)</label>
+            <input id="email" type="email" name="email" class="validate" v-model="email"/>
+            <label for="email">Email (optional)</label>
           </div>
           <div class="input-field col s12 l2">
             <button class="btn waves-effect col s12">Download</button>
@@ -56,6 +56,9 @@ export default {
     isConnected: false,
     socketMessage: '',
     downloads: [],
+    fanficUrl: '',
+    format: 'epub',
+    email: '',
   }),
   sockets: {
     connect() {
@@ -69,13 +72,7 @@ export default {
     },
   },
   methods: {
-    ping() {
-      // Send the "pingServer" event to the server.
-      this.$options.sockets.pong = () => {
-        this.socketMessage = 'PONG';
-      };
-      this.$socket.emit('ping1');
-    },
+
   },
   mounted: () => {
     $(document).ready(() => {
