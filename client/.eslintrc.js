@@ -38,5 +38,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     "linebreak-style": 0,
     "no-console": 0
+  },
+  'globals': {
+    'Cookies': true
   }
 }

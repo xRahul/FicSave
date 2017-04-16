@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "global": "^4.3.1",
+    "random-js": "^1.0.8",
+    "socket.io-client": "^1.7.3",
     "vue": "^2.2.2",
     "vue-socket.io": "^2.1.1-a"
   },
