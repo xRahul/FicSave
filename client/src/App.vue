@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+  <div id="app" class="valign-wrapper">
+    <downloader></downloader>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello';
+import Downloader from './components/Downloader';
 
 export default {
   name: 'app',
   components: {
-    Hello,
+    Downloader,
   },
 };
 </script>
 
 <style>
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: rgba(255, 255, 255, 0.9);
+  flex: 1;
+  background: url('/static/img/background.jpg') no-repeat center center;
+  background-size: cover;
 }
 </style>
